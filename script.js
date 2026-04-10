@@ -255,72 +255,80 @@ function loadDashboard() {
   const total = products.length;
   const value = products.reduce((sum, p) => sum + p.price * p.quantity, 0);
   const lowItems = products.filter(p => p.quantity < 5);
-
   const revenue = sales.reduce((sum, s) => sum + s.revenue, 0);
 
-  if (document.getElementById("totalProducts"))
-    document.getElementById("totalProducts").innerText = total;
+  // ✅ SAFE updates (only if element exists)
+  const totalEl = document.getElementById("totalProducts");
+  if (totalEl) totalEl.innerText = total;
 
-  if (document.getElementById("totalValue"))
-    document.getElementById("totalValue").innerText = "₹" + value;
+  const valueEl = document.getElementById("totalValue");
+  if (valueEl) valueEl.innerText = "₹" + value;
 
-  if (document.getElementById("lowStock"))
-    document.getElementById("lowStock").innerText = lowItems.length;
+  const lowEl = document.getElementById("lowStock");
+  if (lowEl) lowEl.innerText = lowItems.length;
 
-  if (document.getElementById("sales"))
-    document.getElementById("sales").innerText = "₹" + revenue;
+  const salesEl = document.getElementById("sales");
+  if (salesEl) salesEl.innerText = "₹" + revenue;
 
-  // 📈 Growth (based on revenue)
-  // 📈 STABLE GROWTH CALCULATION
+  // =======================
+  // 📈 FIXED GROWTH (SAFE)
+  // =======================
 
-let previousRevenue = 0;
-let currentRevenue = 0;
+  let previousRevenue = 0;
+  let currentRevenue = 0;
 
-const now = new Date();
-const mid = new Date();
-mid.setDate(now.getDate() - 3); // last 3 days split
+  const now = new Date();
+  const mid = new Date();
+  mid.setDate(now.getDate() - 3);
 
-sales.forEach(s => {
-  const saleDate = new Date(s.date);
-
-  if (saleDate >= mid) {
-    currentRevenue += s.revenue;
-  } else {
-    previousRevenue += s.revenue;
-  }
-});
-
-let growth = 0;
-
-if (previousRevenue === 0) {
-  document.getElementById("growth").innerText = "New 🚀";
-} else {
-  document.getElementById("growth").innerText =
-    (growth >= 0 ? "+" : "") + growth.toFixed(0) + "%";
-}
-
-  if (document.getElementById("growth"))
-    document.getElementById("growth").innerText = "+" + growth.toFixed(0) + "%";
-
-  // 🔥 LOW STOCK ALERT
-  const grouped = {};
-
-  lowItems.forEach(p => {
-    if (!grouped[p.category]) grouped[p.category] = [];
-    grouped[p.category].push(p.name);
+  sales.forEach(s => {
+    const saleDate = new Date(s.date);
+    if (saleDate >= mid) {
+      currentRevenue += s.revenue;
+    } else {
+      previousRevenue += s.revenue;
+    }
   });
 
-  let alertHTML = "✅ All good";
+  const growthEl = document.getElementById("growth");
 
-  if (lowItems.length > 0) {
-    alertHTML = "⚠️ Low Stock:<br>";
-    for (let cat in grouped) {
-      alertHTML += `<b>${cat}</b> → ${grouped[cat].join(", ")}<br>`;
+  if (growthEl) {
+    if (previousRevenue === 0 && currentRevenue > 0) {
+      growthEl.innerText = "New 🚀";
+    } else if (previousRevenue === 0) {
+      growthEl.innerText = "0%";
+    } else {
+      let growth = ((currentRevenue - previousRevenue) / previousRevenue) * 100;
+      growthEl.innerText =
+        (growth >= 0 ? "+" : "") + growth.toFixed(0) + "%";
     }
   }
 
+  // =======================
+  // 🔥 LOW STOCK ALERT SAFE
+  // =======================
+
   const alertBox = document.getElementById("alerts");
-  if (alertBox) alertBox.innerHTML = alertHTML;
+
+  if (alertBox) {
+    const grouped = {};
+
+    lowItems.forEach(p => {
+      if (!grouped[p.category]) grouped[p.category] = [];
+      grouped[p.category].push(p.name);
+    });
+
+    let alertHTML = "✅ All good";
+
+    if (lowItems.length > 0) {
+      alertHTML = "⚠️ Low Stock:<br>";
+      for (let cat in grouped) {
+        alertHTML += `<b>${cat}</b> → ${grouped[cat].join(", ")}<br>`;
+      }
+    }
+
+    alertBox.innerHTML = alertHTML;
+  }
 }
 
 // =======================
