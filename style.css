@@ -238,3 +238,45 @@ button:hover {
   background: #3b82f6;
   color: white;
 }
+/* LOGIN PAGE */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #111827, #1f2937);
+}
+
+.login-container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.login-container input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.login-container button {
+  width: 100%;
+  margin-top: 10px;
+  background: #3b82f6;
+}
+
+.login-container button:hover {
+  background: #2563eb;
+}
+
+#error {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}

@@ -1,4 +1,41 @@
 // =======================
+// 🔐 LOGIN SYSTEM
+// =======================
+
+const USER = "admin";
+const PASS = "1234";
+
+function login() {
+  const u = document.getElementById("username")?.value;
+  const p = document.getElementById("password")?.value;
+
+  if (u === USER && p === PASS) {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "index.html";
+  } else {
+    const err = document.getElementById("error");
+    if (err) err.innerText = "❌ Invalid credentials!";
+  }
+}
+
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+}
+
+function checkAuth() {
+  const isLoggedIn = localStorage.getItem("loggedIn");
+
+  if (isLoggedIn !== "true") {
+    window.location.href = "login.html";
+  }
+}
+
+// Run on all pages except login
+if (!window.location.pathname.includes("login.html")) {
+  checkAuth();
+}
+// =======================
 // 📦 GET DATA
 // =======================
 function getProducts() {
@@ -131,6 +168,7 @@ function applyFilters() {
   displayProducts(filtered);
 }
 
+
 // =======================
 // ✏️ EDIT PRODUCT
 // =======================
@@ -233,8 +271,33 @@ function loadDashboard() {
     document.getElementById("sales").innerText = "₹" + revenue;
 
   // 📈 Growth (based on revenue)
-  const lastYear = revenue * 0.7;
-  const growth = lastYear ? ((revenue - lastYear) / lastYear) * 100 : 0;
+  // 📈 STABLE GROWTH CALCULATION
+
+let previousRevenue = 0;
+let currentRevenue = 0;
+
+const now = new Date();
+const mid = new Date();
+mid.setDate(now.getDate() - 3); // last 3 days split
+
+sales.forEach(s => {
+  const saleDate = new Date(s.date);
+
+  if (saleDate >= mid) {
+    currentRevenue += s.revenue;
+  } else {
+    previousRevenue += s.revenue;
+  }
+});
+
+let growth = 0;
+
+if (previousRevenue === 0) {
+  document.getElementById("growth").innerText = "New 🚀";
+} else {
+  document.getElementById("growth").innerText =
+    (growth >= 0 ? "+" : "") + growth.toFixed(0) + "%";
+}
 
   if (document.getElementById("growth"))
     document.getElementById("growth").innerText = "+" + growth.toFixed(0) + "%";
