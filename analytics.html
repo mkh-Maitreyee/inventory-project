@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>📦 Inventory</h2>
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="products.html">📦 Products</a>
+    <a href="analytics.html" class="active">📊 Analytics</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <h1>Analytics</h1>
+
+    <!-- CHART 1 -->
+    <div class="chart-container">
+      <h3>Stock by Category</h3>
+      <canvas id="categoryChart"></canvas>
+    </div>
+
+    <!-- CHART 2 -->
+    <div class="chart-container">
+      <h3>Price Distribution</h3>
+      <canvas id="priceChart"></canvas>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- YOUR SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>

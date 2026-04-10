@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>📦 Inventory</h2>
+    <a href="index.html" class="active">🏠 Dashboard</a>
+    <a href="products.html">📦 Products</a>
+    <a href="analytics.html">📊 Analytics</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- HEADER -->
+    <div class="topbar">
+      <h1>Dashboard</h1>
+      <p>Welcome back 👋</p>
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="cards">
+
+      <div class="card blue">
+        <h3>Total Products</h3>
+        <p id="totalProducts">0</p>
+      </div>
+
+      <div class="card green">
+        <h3>Total Value</h3>
+        <p id="totalValue">₹0</p>
+      </div>
+
+      <div class="card orange">
+        <h3>Low Stock</h3>
+        <p id="lowStock">0</p>
+      </div>
+
+      <div class="card purple">
+        <h3>Estimated Sales</h3>
+        <p id="sales">₹0</p>
+      </div>
+
+    </div>
+
+    <!-- INSIGHTS SECTION -->
+    <div class="insights">
+
+      <div class="insight-card">
+        <h4>📈 Growth</h4>
+        <p id="growth">+0%</p>
+      </div>
+
+      <div class="insight-card">
+        <h4>⚠️ Alerts</h4>
+        <p id="alerts">0 items low</p>
+      </div>
+
+    </div>
+
+    <!-- CHART -->
+    <div class="chart-container">
+      <h3>Stock Distribution</h3>
+      <canvas id="salesChart"></canvas>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

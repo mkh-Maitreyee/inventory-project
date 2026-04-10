@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>📦 Inventory</h2>
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="products.html">📦 Products</a>
+    <a href="analytics.html">📊 Analytics</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- 🔥 TOPBAR -->
+    <div class="topbar">
+      <h2>Products</h2>
+
+      <div class="top-actions">
+        <button onclick="exportToExcel()">📥 Export</button>
+        <button onclick="window.print()">🖨 Print</button>
+        <button onclick="toggleDarkMode()">🌙</button>
+      </div>
+    </div>
+
+    <!-- 🔍 SEARCH -->
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search products..." 
+      onkeyup="liveSearch()" 
+      class="search-box"
+    />
+
+    <!-- 🔍 FILTERS -->
+    <div class="filters">
+
+      <select id="filterCategory">
+        <option value="">All Categories</option>
+        <option>Electronics</option>
+        <option>Clothing</option>
+        <option>Food</option>
+        <option>Stationery</option>
+      </select>
+
+      <input type="date" id="filterDate">
+
+      <button onclick="applyFilters()">Filter</button>
+      <button onclick="loadProducts()">Reset</button>
+
+    </div>
+
+    <!-- ➕ ADD PRODUCT FORM -->
+    <form id="productForm" class="form-card">
+
+      <input id="name" placeholder="Product Name">
+      
+      <select id="category">
+        <option value="">Category</option>
+        <option>Electronics</option>
+        <option>Clothing</option>
+        <option>Food</option>
+        <option>Stationery</option>
+      </select>
+
+      <input id="quantity" type="number" placeholder="Quantity">
+      <input id="price" type="number" placeholder="Price">
+
+      <button type="submit">+ Add Product</button>
+
+    </form>
+
+    <!-- 📦 PRODUCT LIST -->
+    <ul id="productList" class="product-list"></ul>
+
+  </div>
+
+</div>
+
+<!-- ✅ Excel Library -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<!-- YOUR SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
