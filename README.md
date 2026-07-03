@@ -17,10 +17,6 @@ A full-stack **Inventory Management System (IMS)** designed to simplify inventor
 - 📝 User Activity Logging
 - 🗄️ Centralized Database Management
 
-These features provide efficient inventory tracking while reducing manual effort and improving business operations. :contentReference[oaicite:1]{index=1}
-
----
-
 ## 🎯 Objectives
 
 The project aims to:
@@ -29,7 +25,7 @@ The project aims to:
 - Reduce manual errors.
 - Maintain accurate stock levels in real time.
 - Improve business decision-making using analytics.
-- Provide a secure and scalable inventory solution for small businesses. :contentReference[oaicite:2]{index=2}
+- Provide a secure and scalable inventory solution for small businesses. 
 
 ---
 
@@ -41,12 +37,7 @@ The project aims to:
 - Machine Learning
 - Authentication & Authorization
 
-> *(Update this section with the actual technologies used in your project, such as React, Flask, Django, Node.js, MySQL, PostgreSQL, etc.)*
-
 ---
-
-## 👥 User Roles
-
 ### Admin
 - Manage products
 - Manage inventory
@@ -100,11 +91,16 @@ The system integrates machine learning to:
 
 
 - Dashboard
+ <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/532f456f-a006-4412-b6a2-404fe0682456" />
+ 
 - Product Management
+  <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/3436c0cc-fba1-44ef-a608-23e8b4f462c9" />
+  <img width="812" height="523" alt="image" src="https://github.com/user-attachments/assets/c22a8211-bfd9-4fbb-a8ef-59965b2ae117" />
+  
 - Analytics Page
-- Sales Module
-- Purchase Module
-
+  <img width="1024" height="545" alt="image" src="https://github.com/user-attachments/assets/679ddcdf-a40a-458a-af9d-0d688e1aad5d" />
+  <img width="1407" height="747" alt="image" src="https://github.com/user-attachments/assets/b3f6421b-a86d-4b84-b0fb-290a602ff3a5" />
+  <img width="1665" height="885" alt="image" src="https://github.com/user-attachments/assets/267e8aa7-84fa-4844-8f4c-670ab47047c5" />
 ---
 
 ## 🤝 Contributors
