@@ -91,15 +91,20 @@ The system integrates machine learning to:
 
 
 - Dashboard
+  
  <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/532f456f-a006-4412-b6a2-404fe0682456" />
  
 - Product Management
+- 
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/e694feee-6154-4681-8915-5860c5dec566" />
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/c22a8211-bfd9-4fbb-a8ef-59965b2ae117" />
   
 - Analytics Page
+- 
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/679ddcdf-a40a-458a-af9d-0d688e1aad5d" />
+  
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/b3f6421b-a86d-4b84-b0fb-290a602ff3a5" />
+  
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/267e8aa7-84fa-4844-8f4c-670ab47047c5" />
 ---
 
