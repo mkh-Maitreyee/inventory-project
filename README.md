@@ -98,7 +98,6 @@ The system integrates machine learning to:
 
 ## 📷 Screenshots
 
-You can add screenshots here:
 
 - Dashboard
 - Product Management
