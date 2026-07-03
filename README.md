@@ -127,5 +127,7 @@ If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
 
 ## visit website 
 https://inventory-project-sepia.vercel.app/
+
 user: admin
+
 password: 1234
